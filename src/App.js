@@ -4,27 +4,13 @@ import Home from './views/home';
 import Page1 from './views/page1';
 import Page2 from './views/page2';
 import Page3 from './views/page3';
-import './App.css';
+// import './App.css';
 
 const NoMatch = () => 'There is nothing to see here';
 
-const GlobalContext = React.createContext();
-
-const initialState = { theme: 'light' };
-
-function reducer(state, action) {
-  switch (action.type) {
-    case 'toggle':
-      return { theme: state.theme === 'light' ? 'dark' : 'light' };
-    default:
-      throw new Error();
-  }
-}
-
 function App() {
-  const [state, dispatch] = useReducer(reducer, initialState);
   return (
-    <GlobalContext.Provider value={{ state, dispatch }}>
+    <div>
       <Router>
         <Switch>
           <Route exact path="/">
@@ -44,7 +30,7 @@ function App() {
           </Route>
         </Switch>
       </Router>
-    </GlobalContext.Provider>
+    </div>
   );
 }
 
