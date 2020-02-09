@@ -6,11 +6,13 @@ import Page2 from './views/page2';
 import Page3 from './views/page3';
 import './App.css';
 
+const NoMatch = () => 'There is nothing to see here';
+
 function App() {
   return (
     <Router>
       <Switch>
-        <Route path="/">
+        <Route exact path="/">
           <Home />
         </Route>
         <Route path="/page1">
@@ -21,6 +23,9 @@ function App() {
         </Route>
         <Route path="/page3">
           <Page3 />
+        </Route>
+        <Route path="*">
+          <NoMatch />
         </Route>
       </Switch>
     </Router>
