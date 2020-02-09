@@ -8,27 +8,43 @@ import './App.css';
 
 const NoMatch = () => 'There is nothing to see here';
 
+const GlobalContext = React.createContext();
+
+const initialState = { theme: 'light' };
+
+function reducer(state, action) {
+  switch (action.type) {
+    case 'toggle':
+      return { theme: state.theme === 'light' ? 'dark' : 'light' };
+    default:
+      throw new Error();
+  }
+}
+
 function App() {
+  const [state, dispatch] = useReducer(reducer, initialState);
   return (
-    <Router>
-      <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route path="/page1">
-          <Page1 />
-        </Route>
-        <Route path="/page2">
-          <Page2 />
-        </Route>
-        <Route path="/page3">
-          <Page3 />
-        </Route>
-        <Route path="*">
-          <NoMatch />
-        </Route>
-      </Switch>
-    </Router>
+    <GlobalContext.Provider value={{ state, dispatch }}>
+      <Router>
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/page1">
+            <Page1 />
+          </Route>
+          <Route path="/page2">
+            <Page2 />
+          </Route>
+          <Route path="/page3">
+            <Page3 />
+          </Route>
+          <Route path="*">
+            <NoMatch />
+          </Route>
+        </Switch>
+      </Router>
+    </GlobalContext.Provider>
   );
 }
 
