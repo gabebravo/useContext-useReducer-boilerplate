@@ -4,13 +4,18 @@ import Home from './views/home';
 import Page1 from './views/page1';
 import Page2 from './views/page2';
 import Page3 from './views/page3';
-// import './App.css';
+import './App.css';
+import { GlobalContext } from './index';
 
 const NoMatch = () => 'There is nothing to see here';
 
 function App() {
+  const globalReducer = React.useContext(GlobalContext);
+  const {
+    state: { theme }
+  } = globalReducer;
   return (
-    <div>
+    <div className={theme}>
       <Router>
         <Switch>
           <Route exact path="/">
