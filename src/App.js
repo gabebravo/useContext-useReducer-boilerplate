@@ -15,7 +15,7 @@ function App() {
     state: { theme }
   } = globalReducer;
   return (
-    <div className={theme}>
+    <div style={{ height: '100em' }} className={theme}>
       <Router>
         <Switch>
           <Route exact path="/">
