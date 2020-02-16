@@ -1,7 +1,8 @@
 import React from 'react';
 import ThemePicker from '../../components/ThemePicker';
-import Page1Counter from './Page1Counter';
-import Page1Provider from './Page1Provider';
+import Counter from '../../components/Counter';
+import Page1Provider, { Page1Context } from './Page1Provider';
+import { boxes } from '../../utils/constants';
 
 export default function Page1() {
   return (
@@ -10,9 +11,15 @@ export default function Page1() {
         <ThemePicker />
         <div className="counter-container row">
           <Page1Provider>
-            <Page1Counter />
-            <Page1Counter />
-            <Page1Counter />
+            {boxes.map((box, index) => (
+              <Counter
+                key={`page1-${index}`}
+                contextType={Page1Context}
+                incType="INC_PAGE1"
+                DecType="DEC_PAGE1"
+                boxNumber={box}
+              />
+            ))}
           </Page1Provider>
         </div>
       </div>

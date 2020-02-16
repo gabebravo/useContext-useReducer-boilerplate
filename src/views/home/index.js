@@ -1,7 +1,8 @@
 import React from 'react';
 import ThemePicker from '../../components/ThemePicker';
-import HomeCounter from './HomeCounter';
-import HomeProvider from './HomeProvider';
+import Counter from '../../components/Counter';
+import HomeProvider, { HomeContext } from './HomeProvider';
+import { boxes } from '../../utils/constants';
 
 export default function Home() {
   return (
@@ -10,9 +11,15 @@ export default function Home() {
         <ThemePicker />
         <div className="counter-container row">
           <HomeProvider>
-            <HomeCounter />
-            <HomeCounter />
-            <HomeCounter />
+            {boxes.map((box, index) => (
+              <Counter
+                key={`home-${index}`}
+                contextType={HomeContext}
+                incType="INC_HOME"
+                DecType="DEC_HOME"
+                boxNumber={box}
+              />
+            ))}
           </HomeProvider>
         </div>
       </div>
