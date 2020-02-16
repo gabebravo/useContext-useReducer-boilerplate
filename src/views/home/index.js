@@ -1,14 +1,21 @@
 import React from 'react';
-import { GlobalContext } from '../../index';
+import ThemePicker from '../../components/ThemePicker';
+import HomeCounter from './HomeCounter';
+import HomeProvider from './HomeProvider';
 
 export default function Home() {
-  const globalReducer = React.useContext(GlobalContext);
-  const { state, dispatch } = globalReducer;
   return (
-    <div>
-      <h3>Home Page</h3>
-      <h5>{`Theme color is: ${state.theme}`}</h5>
-      <button onClick={() => dispatch({ type: 'TOGGLE' })}>Toggle Theme</button>
+    <div className="theme-picker container">
+      <div>
+        <ThemePicker page="Home" />
+        <div style={{ width: '100rem', marginTop: '5rem' }} className="row">
+          <HomeProvider>
+            <HomeCounter />
+            <HomeCounter />
+            <HomeCounter />
+          </HomeProvider>
+        </div>
+      </div>
     </div>
   );
 }

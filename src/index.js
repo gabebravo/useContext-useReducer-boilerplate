@@ -10,7 +10,7 @@ export const GlobalContext = React.createContext(DEFAULT_STATE);
 
 /// __________________ GLOBAL REDUCER ____________________
 export function globalReducer(state, action) {
-  const { type, payload } = action;
+  const { type } = action;
 
   switch (type) {
     case 'TOGGLE':

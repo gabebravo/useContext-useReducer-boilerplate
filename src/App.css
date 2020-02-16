@@ -7,3 +7,21 @@
   background-color: black;
   color: white;
 }
+
+.theme-picker {
+  display: flex;
+  justify-content: center;
+  padding-top: 3rem;
+}
+
+.button.button-outline.green {
+  background-color: transparent;
+  border-color: green;
+  color: green;
+}
+
+.button.button-outline.red {
+  background-color: transparent;
+  border-color: red;
+  color: red;
+}
