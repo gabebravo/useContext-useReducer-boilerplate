@@ -1,14 +1,10 @@
 import React from 'react';
 import { GlobalContext } from '../index';
 import { useLocation } from 'react-router-dom';
+import { transformPathName } from '../utils';
 
 export default function ThemePicker() {
   let location = useLocation();
-
-  const transformPathName = pn => {
-    const pathArr = pn.split('/');
-    return pathArr[1] ? pathArr[1] : 'home';
-  };
 
   const globalReducer = React.useContext(GlobalContext);
   const { state, dispatch } = globalReducer;
