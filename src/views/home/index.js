@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <div className="theme-picker container">
       <div>
-        <ThemePicker page="Home" />
+        <ThemePicker />
         <div style={{ width: '100rem', marginTop: '5rem' }} className="row">
           <HomeProvider>
             <HomeCounter />

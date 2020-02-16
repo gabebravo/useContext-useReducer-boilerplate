@@ -7,7 +7,7 @@ export default function Page1() {
   return (
     <div className="theme-picker container">
       <div>
-        <ThemePicker page="Page1" />
+        <ThemePicker />
         <div style={{ width: '100rem', marginTop: '5rem' }} className="row">
           <Page1Provider>
             <Page1Counter />

@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import NavBar from './components/NavBar';
 import Home from './views/home';
 import Page1 from './views/page1';
 import Page2 from './views/page2';
@@ -17,6 +18,7 @@ function App() {
   return (
     <div style={{ height: '100em' }} className={theme}>
       <Router>
+        <NavBar />
         <Switch>
           <Route exact path="/">
             <Home />
