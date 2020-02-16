@@ -8,7 +8,7 @@ export default function Page1() {
     <div className="theme-picker container">
       <div>
         <ThemePicker />
-        <div style={{ width: '100rem', marginTop: '5rem' }} className="row">
+        <div className="counter-container row">
           <Page1Provider>
             <Page1Counter />
             <Page1Counter />

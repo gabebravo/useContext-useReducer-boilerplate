@@ -8,7 +8,7 @@ export default function Home() {
     <div className="theme-picker container">
       <div>
         <ThemePicker />
-        <div style={{ width: '100rem', marginTop: '5rem' }} className="row">
+        <div className="counter-container row">
           <HomeProvider>
             <HomeCounter />
             <HomeCounter />
